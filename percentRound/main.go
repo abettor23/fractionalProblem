@@ -11,7 +11,7 @@ func main() {
 	fmt.Print("Введите сумму вклада: ")
 	fmt.Scan(&deposit)
 
-	var percent int
+	var percent float64
 	fmt.Print("Введите ежемесячный процент: ")
 	fmt.Scan(&percent)
 
@@ -23,11 +23,8 @@ func main() {
 	var bankRest float64
 
 	for i := 0; i < termMonths; i++ {
-		deposit += deposit * float64(percent) / 100
-		fmt.Println("Депозит на круге", i, "равен", deposit)
-
+		deposit += deposit * percent / 100
 		rest := deposit - float64(math.Floor(deposit*100))/100
-		fmt.Println("Остаток на круге", i, "равен", rest)
 
 		deposit -= rest
 		bankRest += rest
